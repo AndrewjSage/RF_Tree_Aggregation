@@ -7,7 +7,7 @@ library(party)
 library(plyr)
 library(pROC)
 
-source("CV_Predict_All_Funcs.R")
+source("~/Core Aggregation Functions/CV_Predict_All_Funcs.R")
 
 #Load in dataset
 CCD=read.csv("CCD.csv")
@@ -48,7 +48,8 @@ for(rep in 1:nreps){ #only did 1 rep
     Results=PredictionFunc(TRAIN,TEST, mtry, ndsize, mb, ntrees) 
     OOBPreds[rep,fold,,,,,]=Results[[1]]  #store OOB preds
     TestPreds[rep,fold,,,,,]=Results[[2]] #store test preds
-   # print(c(paste0("rep=: ", rep),paste0("fold=: ", fold))) print when rep and fold complete
+    #change 1 in next lineto 2-6 when performing simulations (b)-(f), respectively 
+    #(as described in ReadMe), in order to match with CCD_CombineFiles.R
     save(OOBPreds, TestPreds, file="CCDRes1.Rdata")     
   }
 }

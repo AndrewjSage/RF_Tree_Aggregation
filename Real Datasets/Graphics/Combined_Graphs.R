@@ -1,4 +1,3 @@
-setwd("~/Box Sync/Iowa State/Research/CF Aggregation Paper/Code for Calibration Paper/Current Code/Combined_Graphics")
 load("STEMResults.Rdata")
 df$Method=as.character(df$Method)
 df$Method[df$Method=="CF-P"]="Combined"

@@ -41,7 +41,7 @@ CF=cforest(Class~., data=TRAIN, controls=cforest_unbiased(ntree=ntrees, mtry=2, 
 CFPred=unlist(predict(CF, newdata=TEST, type="prob")) 
 CFPrb=CFPred[seq(2,2*nrow(TEST),2)]  #Success probabilities
 #Compute probabilities when trees are weighted equally
-source("~/Aggregation Function/CF_Weighting_Func.R")
+source("~/Core Aggregation Functions/CF_Weighting_Func.R")
 CFPrb_uw=UnweightCF(CF,TRAIN,TEST,ntrees)[,2]
 
 
@@ -143,7 +143,7 @@ TEST1=TEST
 TEST1[41,]=c(0.6207, 1.8119, 1.9120, -1.3638,0)
 CFPred=unlist(predict(CF, newdata=TEST1, type="prob")) 
 CFPrb=CFPred[seq(2,2*nrow(TEST1),2)]  #Probabilities of staying in STEM at ISU
-source("CF_Weighting_Func.R")
+source("~/Core Aggregation Functions/CF_Weighting_Func.R")
 CFPrb_uw=UnweightCF(CF,TRAIN,TEST1,ntrees)[,2]
 CFPrb[41]
 CFPrb_uw[41]

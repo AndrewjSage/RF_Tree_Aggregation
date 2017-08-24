@@ -51,7 +51,7 @@ for (ind in 1:length(b)){
   #CF=cforest(Class~., data=TRAIN, controls=cforest_unbiased(ntree=ntrees, mtry=2, minsplit=1, minbucket=1))
   CFPred=unlist(predict(CF, newdata=TEST, type="prob")) 
   CFPrb=CFPred[seq(2,2*nrow(TEST),2)] #proportionally weighted cForest estimates
-  source("~/Aggregation Function/CF_Weighting_Func.R")  
+  source("~/Core Aggregation Functions/CF_Weighting_Func.R")  
   CFPrb_uw=UnweightCF(CF,TRAIN,TEST,ntrees)[,2]  #equally weighted estimates
   RF=randomForest(Class~., data=TRAIN, ntree=ntrees)  #RF not actually used in paper
   RFPrb <- predict(RF, newdata=TEST, type="prob")[,2]
