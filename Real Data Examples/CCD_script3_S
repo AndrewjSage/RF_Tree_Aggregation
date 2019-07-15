@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#Submit this script with: sbatch thefilename
+
+#SBATCH -t 168:00:00   # walltime
+#SBATCH -N 1   # number of nodes in this job
+#SBATCH -n 16   # total number of processor cores in this job
+#SBATCH -J CCD   # job name
+#SBATCH --mail-user=ajsage@iastate.edu   # email address
+#SBATCH --mail-type=BEGIN
+#SBATCH --mail-type=END
+#SBATCH --mail-type=FAIL
+
+# Load R module
+module load parallel/20160422
+module load r
+module load r-partykit
+
+R CMD BATCH CCD_script3.R
+
+exit
+
